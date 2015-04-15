@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB5EBC401AD3A9FA002E529B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC3F1AD3A9FA002E529B /* main.m */; };
+		FB5EBC431AD3A9FA002E529B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC421AD3A9FA002E529B /* AppDelegate.m */; };
+		FB5EBC461AD3A9FA002E529B /* SocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC451AD3A9FA002E529B /* SocialController.m */; };
+		FB5EBC491AD3A9FA002E529B /* AppEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC481AD3A9FA002E529B /* AppEventsController.m */; };
+		FB5EBC4C1AD3A9FA002E529B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5EBC4A1AD3A9FA002E529B /* Main.storyboard */; };
+		FB5EBC4E1AD3A9FA002E529B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5EBC4D1AD3A9FA002E529B /* Images.xcassets */; };
+		FB5EBC511AD3A9FA002E529B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EBC4F1AD3A9FA002E529B /* LaunchScreen.xib */; };
+		FB5EBC5D1AD3A9FA002E529B /* platformTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC5C1AD3A9FA002E529B /* platformTestTests.m */; };
+		FB5F5E741ADD6E3400E7A019 /* SharingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F5E731ADD6E3400E7A019 /* SharingDelegate.m */; };
+		FB5F5E7A1ADD71CD00E7A019 /* AppInviteDialogDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F5E791ADD71CD00E7A019 /* AppInviteDialogDelegate.m */; };
+		FB5F5E7D1ADD875C00E7A019 /* TableViewPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F5E7C1ADD875C00E7A019 /* TableViewPickerController.m */; };
+		FBA5CDC01ADE68340099E5A4 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA5CDBF1ADE68340099E5A4 /* PickerViewController.m */; };
+		FBBDE3EB1AD5B71B000EB014 /* GameRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBDE3EA1AD5B71B000EB014 /* GameRequestDelegate.m */; };
+		FBBDE42C1AD90B14000EB014 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBDE4291AD90B14000EB014 /* FBSDKCoreKit.framework */; };
+		FBBDE42D1AD90B14000EB014 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBDE42A1AD90B14000EB014 /* FBSDKLoginKit.framework */; };
+		FBBDE42E1AD90B14000EB014 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBDE42B1AD90B14000EB014 /* FBSDKShareKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB5EBC571AD3A9FA002E529B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB5EBC321AD3A9FA002E529B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB5EBC391AD3A9FA002E529B;
+			remoteInfo = platformTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB5EBC3A1AD3A9FA002E529B /* platformTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = platformTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB5EBC3E1AD3A9FA002E529B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB5EBC3F1AD3A9FA002E529B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB5EBC411AD3A9FA002E529B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB5EBC421AD3A9FA002E529B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB5EBC441AD3A9FA002E529B /* SocialController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialController.h; sourceTree = "<group>"; };
+		FB5EBC451AD3A9FA002E529B /* SocialController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialController.m; sourceTree = "<group>"; };
+		FB5EBC471AD3A9FA002E529B /* AppEventsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppEventsController.h; sourceTree = "<group>"; };
+		FB5EBC481AD3A9FA002E529B /* AppEventsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppEventsController.m; sourceTree = "<group>"; };
+		FB5EBC4B1AD3A9FA002E529B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB5EBC4D1AD3A9FA002E529B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB5EBC501AD3A9FA002E529B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FB5EBC561AD3A9FA002E529B /* platformTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = platformTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB5EBC5B1AD3A9FA002E529B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB5EBC5C1AD3A9FA002E529B /* platformTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = platformTestTests.m; sourceTree = "<group>"; };
+		FB5F5E721ADD6E3400E7A019 /* SharingDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharingDelegate.h; sourceTree = "<group>"; };
+		FB5F5E731ADD6E3400E7A019 /* SharingDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharingDelegate.m; sourceTree = "<group>"; };
+		FB5F5E781ADD71CD00E7A019 /* AppInviteDialogDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInviteDialogDelegate.h; sourceTree = "<group>"; };
+		FB5F5E791ADD71CD00E7A019 /* AppInviteDialogDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInviteDialogDelegate.m; sourceTree = "<group>"; };
+		FB5F5E7B1ADD875C00E7A019 /* TableViewPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewPickerController.h; sourceTree = "<group>"; };
+		FB5F5E7C1ADD875C00E7A019 /* TableViewPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewPickerController.m; sourceTree = "<group>"; };
+		FBA5CDBE1ADE68340099E5A4 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
+		FBA5CDBF1ADE68340099E5A4 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
+		FBBDE3E91AD5B71B000EB014 /* GameRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameRequestDelegate.h; sourceTree = "<group>"; };
+		FBBDE3EA1AD5B71B000EB014 /* GameRequestDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameRequestDelegate.m; sourceTree = "<group>"; };
+		FBBDE4291AD90B14000EB014 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		FBBDE42A1AD90B14000EB014 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		FBBDE42B1AD90B14000EB014 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB5EBC371AD3A9FA002E529B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBBDE42D1AD90B14000EB014 /* FBSDKLoginKit.framework in Frameworks */,
+				FBBDE42C1AD90B14000EB014 /* FBSDKCoreKit.framework in Frameworks */,
+				FBBDE42E1AD90B14000EB014 /* FBSDKShareKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB5EBC531AD3A9FA002E529B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB5EBC311AD3A9FA002E529B = {
+			isa = PBXGroup;
+			children = (
+				FB5EBC731AD3C4CC002E529B /* Frameworks */,
+				FB5EBC3C1AD3A9FA002E529B /* platformTest */,
+				FB5EBC591AD3A9FA002E529B /* platformTestTests */,
+				FB5EBC3B1AD3A9FA002E529B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB5EBC3B1AD3A9FA002E529B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EBC3A1AD3A9FA002E529B /* platformTest.app */,
+				FB5EBC561AD3A9FA002E529B /* platformTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB5EBC3C1AD3A9FA002E529B /* platformTest */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EBC411AD3A9FA002E529B /* AppDelegate.h */,
+				FB5EBC421AD3A9FA002E529B /* AppDelegate.m */,
+				FB5EBC441AD3A9FA002E529B /* SocialController.h */,
+				FB5EBC451AD3A9FA002E529B /* SocialController.m */,
+				FBA5CDBE1ADE68340099E5A4 /* PickerViewController.h */,
+				FBA5CDBF1ADE68340099E5A4 /* PickerViewController.m */,
+				FB5F5E7B1ADD875C00E7A019 /* TableViewPickerController.h */,
+				FB5F5E7C1ADD875C00E7A019 /* TableViewPickerController.m */,
+				FB5EBC471AD3A9FA002E529B /* AppEventsController.h */,
+				FB5EBC481AD3A9FA002E529B /* AppEventsController.m */,
+				FB5F5E781ADD71CD00E7A019 /* AppInviteDialogDelegate.h */,
+				FB5F5E791ADD71CD00E7A019 /* AppInviteDialogDelegate.m */,
+				FBBDE3E91AD5B71B000EB014 /* GameRequestDelegate.h */,
+				FBBDE3EA1AD5B71B000EB014 /* GameRequestDelegate.m */,
+				FB5F5E721ADD6E3400E7A019 /* SharingDelegate.h */,
+				FB5F5E731ADD6E3400E7A019 /* SharingDelegate.m */,
+				FB5EBC4A1AD3A9FA002E529B /* Main.storyboard */,
+				FB5EBC4D1AD3A9FA002E529B /* Images.xcassets */,
+				FB5EBC4F1AD3A9FA002E529B /* LaunchScreen.xib */,
+				FB5EBC3D1AD3A9FA002E529B /* Supporting Files */,
+			);
+			path = platformTest;
+			sourceTree = "<group>";
+		};
+		FB5EBC3D1AD3A9FA002E529B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EBC3E1AD3A9FA002E529B /* Info.plist */,
+				FB5EBC3F1AD3A9FA002E529B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB5EBC591AD3A9FA002E529B /* platformTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EBC5C1AD3A9FA002E529B /* platformTestTests.m */,
+				FB5EBC5A1AD3A9FA002E529B /* Supporting Files */,
+			);
+			path = platformTestTests;
+			sourceTree = "<group>";
+		};
+		FB5EBC5A1AD3A9FA002E529B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EBC5B1AD3A9FA002E529B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB5EBC731AD3C4CC002E529B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBBDE4291AD90B14000EB014 /* FBSDKCoreKit.framework */,
+				FBBDE42A1AD90B14000EB014 /* FBSDKLoginKit.framework */,
+				FBBDE42B1AD90B14000EB014 /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB5EBC391AD3A9FA002E529B /* platformTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB5EBC601AD3A9FA002E529B /* Build configuration list for PBXNativeTarget "platformTest" */;
+			buildPhases = (
+				FB5EBC361AD3A9FA002E529B /* Sources */,
+				FB5EBC371AD3A9FA002E529B /* Frameworks */,
+				FB5EBC381AD3A9FA002E529B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = platformTest;
+			productName = platformTest;
+			productReference = FB5EBC3A1AD3A9FA002E529B /* platformTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB5EBC551AD3A9FA002E529B /* platformTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB5EBC631AD3A9FA002E529B /* Build configuration list for PBXNativeTarget "platformTestTests" */;
+			buildPhases = (
+				FB5EBC521AD3A9FA002E529B /* Sources */,
+				FB5EBC531AD3A9FA002E529B /* Frameworks */,
+				FB5EBC541AD3A9FA002E529B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB5EBC581AD3A9FA002E529B /* PBXTargetDependency */,
+			);
+			name = platformTestTests;
+			productName = platformTestTests;
+			productReference = FB5EBC561AD3A9FA002E529B /* platformTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB5EBC321AD3A9FA002E529B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Pu Guannan";
+				TargetAttributes = {
+					FB5EBC391AD3A9FA002E529B = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = ZK53YZ3NDT;
+					};
+					FB5EBC551AD3A9FA002E529B = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = FB5EBC391AD3A9FA002E529B;
+					};
+				};
+			};
+			buildConfigurationList = FB5EBC351AD3A9FA002E529B /* Build configuration list for PBXProject "platformTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB5EBC311AD3A9FA002E529B;
+			productRefGroup = FB5EBC3B1AD3A9FA002E529B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB5EBC391AD3A9FA002E529B /* platformTest */,
+				FB5EBC551AD3A9FA002E529B /* platformTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB5EBC381AD3A9FA002E529B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5EBC4C1AD3A9FA002E529B /* Main.storyboard in Resources */,
+				FB5EBC511AD3A9FA002E529B /* LaunchScreen.xib in Resources */,
+				FB5EBC4E1AD3A9FA002E529B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB5EBC541AD3A9FA002E529B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB5EBC361AD3A9FA002E529B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5EBC491AD3A9FA002E529B /* AppEventsController.m in Sources */,
+				FB5EBC431AD3A9FA002E529B /* AppDelegate.m in Sources */,
+				FB5EBC461AD3A9FA002E529B /* SocialController.m in Sources */,
+				FB5F5E741ADD6E3400E7A019 /* SharingDelegate.m in Sources */,
+				FBA5CDC01ADE68340099E5A4 /* PickerViewController.m in Sources */,
+				FB5EBC401AD3A9FA002E529B /* main.m in Sources */,
+				FBBDE3EB1AD5B71B000EB014 /* GameRequestDelegate.m in Sources */,
+				FB5F5E7D1ADD875C00E7A019 /* TableViewPickerController.m in Sources */,
+				FB5F5E7A1ADD71CD00E7A019 /* AppInviteDialogDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB5EBC521AD3A9FA002E529B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB5EBC5D1AD3A9FA002E529B /* platformTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB5EBC581AD3A9FA002E529B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB5EBC391AD3A9FA002E529B /* platformTest */;
+			targetProxy = FB5EBC571AD3A9FA002E529B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB5EBC4A1AD3A9FA002E529B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB5EBC4B1AD3A9FA002E529B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB5EBC4F1AD3A9FA002E529B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB5EBC501AD3A9FA002E529B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB5EBC5E1AD3A9FA002E529B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FB5EBC5F1AD3A9FA002E529B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB5EBC611AD3A9FA002E529B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pgn/Documents/FacebookSDK,
+					/Users/pgn/Documents/FacebookSDK,
+					4.0.1,
+				);
+				INFOPLIST_FILE = platformTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB5EBC621AD3A9FA002E529B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/pgn/Documents/FacebookSDK,
+					/Users/pgn/Documents/FacebookSDK,
+					4.0.1,
+				);
+				INFOPLIST_FILE = platformTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FB5EBC641AD3A9FA002E529B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = platformTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/platformTest.app/platformTest";
+			};
+			name = Debug;
+		};
+		FB5EBC651AD3A9FA002E529B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = platformTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/platformTest.app/platformTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB5EBC351AD3A9FA002E529B /* Build configuration list for PBXProject "platformTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB5EBC5E1AD3A9FA002E529B /* Debug */,
+				FB5EBC5F1AD3A9FA002E529B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB5EBC601AD3A9FA002E529B /* Build configuration list for PBXNativeTarget "platformTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB5EBC611AD3A9FA002E529B /* Debug */,
+				FB5EBC621AD3A9FA002E529B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB5EBC631AD3A9FA002E529B /* Build configuration list for PBXNativeTarget "platformTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB5EBC641AD3A9FA002E529B /* Debug */,
+				FB5EBC651AD3A9FA002E529B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB5EBC321AD3A9FA002E529B /* Project object */;
+}
