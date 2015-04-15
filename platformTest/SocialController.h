@@ -13,8 +13,10 @@
 #import "GameRequestDelegate.h"
 #import "SharingDelegate.h"
 #import "AppInviteDialogDelegate.h"
+#import "UiSwipeViewController.h"
+#import "ImagePicker.h"
 
-@interface SocialController : UIViewController <FBSDKLoginButtonDelegate>
+@interface SocialController : UiSwipeViewController <FBSDKLoginButtonDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
 @property (nonatomic, strong) IBOutlet UIButton *customLoginButton;
 @property (nonatomic, strong) IBOutlet UIButton *getPublishActionsButton;
@@ -24,6 +26,6 @@
 @property (nonatomic, strong) GameRequestDelegate<FBSDKGameRequestDialogDelegate> *gameRequestDelegate;
 @property (nonatomic, strong) SharingDelegate<FBSDKSharingDelegate> *sharingDelegate;
 @property (nonatomic, strong) AppInviteDialogDelegate<FBSDKAppInviteDialogDelegate> *appInviteDialogDelegate;
-//- (IBAction)showMain:(UIStoryboardSegue *)segue;
+
 @end
 

@@ -193,6 +193,16 @@
                                             <action selector="shareOGAPI:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ut5-10-Lzc"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPc-8q-uUy">
+                                        <rect key="frame" x="20" y="328" width="150" height="34"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Share Photo">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sharePhoto:" destination="9pv-A4-QxB" eventType="touchUpInside" id="zru-Ih-ZPJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -374,6 +384,16 @@
                                     <segue destination="h7t-hi-ghl" kind="presentation" identifier="showAchievement" id="9TW-C9-rmp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1I-k4-9UL">
+                                <rect key="frame" x="46" y="316" width="150" height="34"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Spend Credits">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="h7t-hi-ghl" kind="presentation" identifier="showSpendCredits" id="aoj-9o-Q41"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNF-Nc-2j8">
                                 <rect key="frame" x="46" y="238" width="150" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -528,7 +548,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aoj-9o-Q41"/>
         <segue reference="mTK-6o-TyL"/>
-        <segue reference="2hC-W7-EWV"/>
     </inferredMetricsTieBreakers>
 </document>

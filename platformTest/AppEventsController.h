@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UiSwipeViewController.h"
 
-@interface AppEventsController : UIViewController
+@interface AppEventsController : UiSwipeViewController
 @end
 

@@ -13,7 +13,8 @@
 
 @interface SocialController ()
 @property (nonatomic) bool playerLoggedIn;
-
+@property (nonatomic, strong) ImagePicker *imagePicker;
+@property (nonatomic, strong) UIImage *selectedPhoto;
 @end
 
 @implementation SocialController
@@ -267,6 +268,20 @@
     }
 }
 
+- (IBAction)sharePhoto:(id)sender
+{
+    ImagePicker *imagePicker = [[ImagePicker alloc] init];
+    self.imagePicker = imagePicker;
+    imagePicker.delegate = self;
+    if ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) && [sender isKindOfClass:[UIView class]]) {
+        UIView *senderView = (UIView *)sender;
+        UIView *view = self.view;
+        [imagePicker presentFromRect:[view convertRect:senderView.bounds fromView:senderView] inView:self.view];
+    } else {
+        [imagePicker presentWithViewController:self];
+    }
+}
+
 - (IBAction)showMain:(UIStoryboardSegue *)segue sender:(id) sender
 {
     NSString *identifier = segue.identifier;
@@ -325,5 +340,29 @@
         vc.allowsMultipleSelection = YES;
     }
 }
+
+#pragma mark - SCImagePickerDelegate
+
+- (void)imagePicker:(ImagePicker *)imagePicker didSelectImage:(UIImage *)image
+{
+    self.selectedPhoto = image;
+    self.imagePicker = nil;
+    
+    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+    photo.image = image;
+    photo.userGenerated = YES;
+    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+    content.photos = @[photo];
+    content.contentURL = [NSURL URLWithString: @"https://platformtest.herokuapp.com/1200630.html"];
+    content.ref = @"sharePhoto";
+    
+    [FBSDKShareDialog showFromViewController:self withContent:content delegate:_sharingDelegate];
+}
+
+- (void)imagePickerDidCancel:(ImagePicker *)imagePicker
+{
+    self.imagePicker = nil;
+}
+
 
 @end

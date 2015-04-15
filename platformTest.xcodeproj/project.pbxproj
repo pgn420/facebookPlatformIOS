@@ -23,6 +23,8 @@
 		FBBDE42C1AD90B14000EB014 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBDE4291AD90B14000EB014 /* FBSDKCoreKit.framework */; };
 		FBBDE42D1AD90B14000EB014 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBDE42A1AD90B14000EB014 /* FBSDKLoginKit.framework */; };
 		FBBDE42E1AD90B14000EB014 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBDE42B1AD90B14000EB014 /* FBSDKShareKit.framework */; };
+		FBC06F1C1ADED33F002CC1F5 /* UiSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC06F1B1ADED33F002CC1F5 /* UiSwipeViewController.m */; };
+		FBC06F1F1ADEDBA4002CC1F5 /* ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC06F1E1ADEDBA4002CC1F5 /* ImagePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,10 @@
 		FBBDE4291AD90B14000EB014 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		FBBDE42A1AD90B14000EB014 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		FBBDE42B1AD90B14000EB014 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		FBC06F1A1ADED33F002CC1F5 /* UiSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UiSwipeViewController.h; sourceTree = "<group>"; };
+		FBC06F1B1ADED33F002CC1F5 /* UiSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UiSwipeViewController.m; sourceTree = "<group>"; };
+		FBC06F1D1ADEDBA4002CC1F5 /* ImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePicker.h; sourceTree = "<group>"; };
+		FBC06F1E1ADEDBA4002CC1F5 /* ImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				FBA5CDBF1ADE68340099E5A4 /* PickerViewController.m */,
 				FB5F5E7B1ADD875C00E7A019 /* TableViewPickerController.h */,
 				FB5F5E7C1ADD875C00E7A019 /* TableViewPickerController.m */,
+				FBC06F1A1ADED33F002CC1F5 /* UiSwipeViewController.h */,
+				FBC06F1B1ADED33F002CC1F5 /* UiSwipeViewController.m */,
+				FBC06F1D1ADEDBA4002CC1F5 /* ImagePicker.h */,
+				FBC06F1E1ADEDBA4002CC1F5 /* ImagePicker.m */,
 				FB5EBC471AD3A9FA002E529B /* AppEventsController.h */,
 				FB5EBC481AD3A9FA002E529B /* AppEventsController.m */,
 				FB5F5E781ADD71CD00E7A019 /* AppInviteDialogDelegate.h */,
@@ -276,7 +286,9 @@
 				FB5F5E741ADD6E3400E7A019 /* SharingDelegate.m in Sources */,
 				FBA5CDC01ADE68340099E5A4 /* PickerViewController.m in Sources */,
 				FB5EBC401AD3A9FA002E529B /* main.m in Sources */,
+				FBC06F1F1ADEDBA4002CC1F5 /* ImagePicker.m in Sources */,
 				FBBDE3EB1AD5B71B000EB014 /* GameRequestDelegate.m in Sources */,
+				FBC06F1C1ADED33F002CC1F5 /* UiSwipeViewController.m in Sources */,
 				FB5F5E7D1ADD875C00E7A019 /* TableViewPickerController.m in Sources */,
 				FB5F5E7A1ADD71CD00E7A019 /* AppInviteDialogDelegate.m in Sources */,
 			);

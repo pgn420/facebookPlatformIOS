@@ -104,6 +104,12 @@
     {
         [FBSDKAppEvents logEvent:FBSDKAppEventNameUnlockedAchievement parameters:properties];
     }
+    else if ([_lastSegueIdentifier isEqualToString:@"showSpendCredits"])
+    {
+        double value = [[properties valueForKey:@"Value"] doubleValue];
+        [properties removeObjectForKey:@"Value"];
+        [FBSDKAppEvents logEvent:FBSDKAppEventNameSpentCredits valueToSum:value parameters:properties];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -171,6 +177,35 @@
                          FBSDKAppEventParameterNameCurrency: @"USD",
                          @"Value":@99.99,
                          @"Text": @"$99.99 for 7200 gems"},
+                       ];
+    }
+    else if ([_lastSegueIdentifier isEqualToString:@"showSpendCredits"])
+    {
+        vc.content = @[@{FBSDKAppEventParameterNameContentID: @"20001",
+                         FBSDKAppEventParameterNameDescription: @"Green Armor",
+                         FBSDKAppEventParameterNameContentType: @"Hard Currency",
+                         @"Value":@150,
+                         @"Text": @"150 gems for armor"},
+                       @{FBSDKAppEventParameterNameContentID: @"20002",
+                         FBSDKAppEventParameterNameDescription: @"Lightning Shoe",
+                         FBSDKAppEventParameterNameContentType: @"Hard Currency",
+                         @"Value":@350,
+                         @"Text": @"350 gems for shoe"},
+                       @{FBSDKAppEventParameterNameContentID: @"20003",
+                         FBSDKAppEventParameterNameDescription: @"Magic Helm",
+                         FBSDKAppEventParameterNameContentType: @"Hard Currency",
+                         @"Value":@200,
+                         @"Text": @"200 gems for armor"},
+                       @{FBSDKAppEventParameterNameContentID: @"20004",
+                         FBSDKAppEventParameterNameDescription: @"Crystal Sword",
+                         FBSDKAppEventParameterNameContentType: @"Hard Currency",
+                         @"Value":@900,
+                         @"Text": @"900 gems for sword"},
+                       @{FBSDKAppEventParameterNameContentID: @"20005",
+                         FBSDKAppEventParameterNameDescription: @"Gold Shield",
+                         FBSDKAppEventParameterNameContentType: @"Hard Currency",
+                         @"Value":@450,
+                         @"Text": @"450 gems for shield"},
                        ];
     }
 }
