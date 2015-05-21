@@ -171,6 +171,8 @@
     content.imageURL = [NSURL URLWithString:@"https://platformtest.herokuapp.com/1200630.jpg"];
     content.contentTitle = @"Test";
     content.contentURL =[NSURL URLWithString: @"https://platformtest.herokuapp.com/1200630.html"];
+    //content.contentURL = [NSURL URLWithString:@"https://youtu.be/C8zEMHmYLyU"];
+    
     content.ref = @"Sharelink";
     
     [FBSDKShareDialog showFromViewController:self withContent:content delegate:self.sharingDelegate];
@@ -179,8 +181,9 @@
 -(IBAction)appInvite:(id)sender
 {
     NSURL* url = [NSURL URLWithString:@"https://platformtest.herokuapp.com/applinks.html"];
-    FBSDKAppInviteContent *inviteContent = [[FBSDKAppInviteContent alloc] initWithAppLinkURL:url];
+    FBSDKAppInviteContent *inviteContent = [[FBSDKAppInviteContent alloc] init];
     inviteContent.previewImageURL = [NSURL URLWithString:@"https://platformtest.herokuapp.com/1200630.jpg"];
+    inviteContent.appLinkURL = url;
     [FBSDKAppInviteDialog showWithContent:inviteContent delegate:self.appInviteDialogDelegate];
 }
 
@@ -272,7 +275,7 @@
 {
     ImagePicker *imagePicker = [[ImagePicker alloc] init];
     self.imagePicker = imagePicker;
-    imagePicker.delegate = self;
+    //imagePicker.delegate = self;
     if ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) && [sender isKindOfClass:[UIView class]]) {
         UIView *senderView = (UIView *)sender;
         UIView *view = self.view;
