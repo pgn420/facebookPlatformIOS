@@ -182,7 +182,7 @@
 {
     NSURL* url = [NSURL URLWithString:@"https://platformtest.herokuapp.com/applinks.html"];
     FBSDKAppInviteContent *inviteContent = [[FBSDKAppInviteContent alloc] init];
-    inviteContent.previewImageURL = [NSURL URLWithString:@"https://platformtest.herokuapp.com/1200630.jpg"];
+    inviteContent.appInvitePreviewImageURL = [NSURL URLWithString:@"https://platformtest.herokuapp.com/1200630.jpg"];
     inviteContent.appLinkURL = url;
     [FBSDKAppInviteDialog showWithContent:inviteContent delegate:self.appInviteDialogDelegate];
 }
@@ -307,7 +307,7 @@
         FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc]init];
         content.message = @"invitable friends";
         content.title = @"Invitable invite";
-        content.to = _selectedFriends;
+        content.recipients = _selectedFriends;
         
         [FBSDKGameRequestDialog showWithContent:content delegate:self.gameRequestDelegate];
     }
@@ -316,7 +316,7 @@
         FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc]init];
         content.message = @"In game friends";
         content.title = @"In game friend request";
-        content.to = _selectedFriends;
+        content.recipients = _selectedFriends;
         
         [FBSDKGameRequestDialog showWithContent:content delegate:self.gameRequestDelegate];
     }
