@@ -10,21 +10,21 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
-#import "GameRequestDelegate.h"
-#import "SharingDelegate.h"
-#import "AppInviteDialogDelegate.h"
-#import "UiSwipeViewController.h"
+#import "PFTGameRequestDelegate.h"
+#import "PFTSharingDelegate.h"
+#import "PFTAppInviteDialogDelegate.h"
+#import "PFTUiSwipeViewController.h"
 
-@interface PFTSocialController : UiSwipeViewController <FBSDKLoginButtonDelegate>
+@interface PFTSocialController : PFTUiSwipeViewController <FBSDKLoginButtonDelegate>
 @property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
 @property (nonatomic, strong) IBOutlet UIButton *customLoginButton;
 @property (nonatomic, strong) IBOutlet UIButton *getPublishActionsButton;
 @property (nonatomic, strong) IBOutlet FBSDKProfilePictureView *profilePictureView;
 @property (nonatomic, strong) IBOutlet UILabel *profileName;
 @property (nonatomic, strong) FBSDKLoginManager *loginManager;
-@property (nonatomic, strong) GameRequestDelegate<FBSDKGameRequestDialogDelegate> *gameRequestDelegate;
-@property (nonatomic, strong) SharingDelegate<FBSDKSharingDelegate> *sharingDelegate;
-@property (nonatomic, strong) AppInviteDialogDelegate<FBSDKAppInviteDialogDelegate> *appInviteDialogDelegate;
+@property (nonatomic, strong) PFTGameRequestDelegate<FBSDKGameRequestDialogDelegate> *gameRequestDelegate;
+@property (nonatomic, strong) PFTSharingDelegate<FBSDKSharingDelegate> *sharingDelegate;
+@property (nonatomic, strong) PFTAppInviteDialogDelegate<FBSDKAppInviteDialogDelegate> *appInviteDialogDelegate;
 
 @end
 

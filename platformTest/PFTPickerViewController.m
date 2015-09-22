@@ -8,7 +8,7 @@
 
 #import "PFTPickerViewController.h"
 
-@implementation PickerViewController
+@implementation PFTPickerViewController
 
 - (void) setContent:(NSArray *)content
 {

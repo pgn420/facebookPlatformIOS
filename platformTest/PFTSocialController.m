@@ -10,8 +10,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <FBSDKShareKit/FBSDKGameRequestContent.h>
-#include "TableViewPickerController.h"
-#include "APLViewController.h"
+#include "PFTTableViewPickerController.h"
+#include "PFTImageViewController.h"
 
 @interface PFTSocialController ()
 @property (nonatomic) bool playerLoggedIn;
@@ -32,9 +32,9 @@
     [self createLikeButton];
     
     _loginManager = [[FBSDKLoginManager alloc] init];
-    _gameRequestDelegate = [[GameRequestDelegate alloc] init];
-    _sharingDelegate = [[SharingDelegate alloc] init];
-    _appInviteDialogDelegate = [[AppInviteDialogDelegate alloc] init];
+    _gameRequestDelegate = [[PFTGameRequestDelegate alloc] init];
+    _sharingDelegate = [[PFTSharingDelegate alloc] init];
+    _appInviteDialogDelegate = [[PFTAppInviteDialogDelegate alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeProfileChange:) name:FBSDKProfileDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeTokenChange:) name:FBSDKAccessTokenDidChangeNotification object:nil];
@@ -280,10 +280,21 @@
     NSLog(@"showMain ==%@",identifier);
     
     if ([identifier isEqualToString:@"sharePhoto"]) {
+        PFTImageViewController *vc = segue.sourceViewController;
+        UIImage *image = vc.image;
+        if (image == nil) {
+            return;
+        }
+        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+        photo.image = image;
+        photo.userGenerated = YES;
+        FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+        content.photos = @[photo];
+        [FBSDKShareDialog showFromViewController:self.view.window.rootViewController withContent:content delegate:_sharingDelegate];
         return;
     }
        
-    TableViewPickerController *vc = segue.sourceViewController;
+    PFTTableViewPickerController *vc = segue.sourceViewController;
     _selectedFriends = [vc.selection valueForKeyPath:@"id"];
     if (_selectedFriends.count == 0) {
         _selectedFriends = nil;
@@ -317,7 +328,7 @@
     // NOTE: for simplicity, we are not paging the results of the request.
     _lastSegueIdentifier = segue.identifier;
     if ([_lastSegueIdentifier isEqualToString:@"showInvitableFriendsPicker"]) {
-        TableViewPickerController *vc = segue.destinationViewController;
+        PFTTableViewPickerController *vc = segue.destinationViewController;
         vc.requiredPermission = @"user_friends";
         vc.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/invitable_friends?limit=100"
                                                        parameters:@{ @"fields" : @"id,name,picture.width(100).height(100)"
@@ -325,7 +336,7 @@
         vc.allowsMultipleSelection = YES;
     }
     else if ([_lastSegueIdentifier isEqualToString:@"showInGameFriends"]) {
-        TableViewPickerController *vc = segue.destinationViewController;
+        PFTTableViewPickerController *vc = segue.destinationViewController;
         vc.requiredPermission = @"user_friends";
         vc.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/friends?limit=100"
                                                        parameters:@{ @"fields" : @"id,name,picture.width(100).height(100)"

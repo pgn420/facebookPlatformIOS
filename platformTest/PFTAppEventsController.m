@@ -19,7 +19,7 @@
 @property (nonatomic, strong) IBOutlet UISlider *eventValueSlider;
 @end
 
-@implementation AppEventsController
+@implementation PFTAppEventsController
 {
     NSString *_lastSegueIdentifier;
 }
