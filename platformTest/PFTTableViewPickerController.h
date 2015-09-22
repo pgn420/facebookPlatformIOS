@@ -20,7 +20,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface TableViewPickerController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PFTTableViewPickerController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) FBSDKGraphRequest *request;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "AppInviteDialogDelegate.h"
+#import "PFTAppInviteDialogDelegate.h"
 
-@implementation AppInviteDialogDelegate
+@implementation PFTAppInviteDialogDelegate
 
 -(void) appInviteDialog:(FBSDKAppInviteDialog *)appInviteDialog didCompleteWithResults:(NSDictionary *)results
 {

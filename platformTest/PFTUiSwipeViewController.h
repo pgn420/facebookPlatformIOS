@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UiSwipeViewController : UIViewController
+@interface PFTUiSwipeViewController : UIViewController
 @end

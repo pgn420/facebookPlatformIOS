@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "UiSwipeViewController.h"
+#import "PFTUiSwipeViewController.h"
 
-@implementation UiSwipeViewController
+@implementation PFTUiSwipeViewController
 
 - (void)viewDidLoad
 {

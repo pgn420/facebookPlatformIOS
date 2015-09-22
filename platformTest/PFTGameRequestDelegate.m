@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "GameRequestDelegate.h"
+#import "PFTGameRequestDelegate.h"
 
 
-@implementation GameRequestDelegate
+@implementation PFTGameRequestDelegate
 
 -(void) gameRequestDialog:(FBSDKGameRequestDialog *)gameRequestDialog didCompleteWithResults:(NSDictionary *)results
 {

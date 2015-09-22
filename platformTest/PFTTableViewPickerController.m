@@ -16,13 +16,13 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TableViewPickerController.h"
+#import "PFTTableViewPickerController.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@implementation TableViewPickerController
+@implementation PFTTableViewPickerController
 {
     NSArray *_results;
 }
@@ -39,8 +39,7 @@
     if (self.requiredPermission && ![[FBSDKAccessToken currentAccessToken] hasGranted:self.requiredPermission])
     {
         FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-        [login logInWithReadPermissions:@[self.requiredPermission]
-                                handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+        [login logInWithReadPermissions:@[self.requiredPermission] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
             if ([result.grantedPermissions containsObject:self.requiredPermission]) {
                 [self fetchData];
             } else {
@@ -57,13 +56,7 @@
     [self.request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         if (error) {
             NSLog(@"Picker loading error:%@", error);
-            if (!error.userInfo[FBSDKErrorLocalizedDescriptionKey]) {
-                [[[UIAlertView alloc] initWithTitle:@"Oops"
-                                            message:@"There was a problem fetching the list"
-                                           delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil] show];
-            }
+
             [self dismissViewControllerAnimated:YES completion:nil];
         } else {
             _results = result[@"data"];

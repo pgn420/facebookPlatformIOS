@@ -6,18 +6,19 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "SocialController.h"
+#import "PFTSocialController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <FBSDKShareKit/FBSDKGameRequestContent.h>
 #include "TableViewPickerController.h"
+#include "APLViewController.h"
 
-@interface SocialController ()
+@interface PFTSocialController ()
 @property (nonatomic) bool playerLoggedIn;
-@property (nonatomic, strong) ImagePicker *imagePicker;
 @property (nonatomic, strong) UIImage *selectedPhoto;
 @end
 
-@implementation SocialController
+@implementation PFTSocialController
 {
     NSString *_lastSegueIdentifier;
     NSArray *_selectedFriends;
@@ -62,8 +63,9 @@
 {
     CGRect rect = self.view.bounds;
     FBSDKLikeControl *button = [[FBSDKLikeControl alloc] init];
-    button.objectID = @"https://www.facebook.com/pages/Platform-test-Community/1532448836976540";
+    button.objectID = @"https://www.facebook.com/DotArenaFunplus";
     button.likeControlAuxiliaryPosition = FBSDKLikeControlAuxiliaryPositionBottom;
+    button.likeControlStyle = FBSDKLikeControlStyleBoxCount;
     button.center = CGPointMake(rect.size.width / 2.0, rect.size.height - 100);
     [self.view addSubview:button];
 }
@@ -71,13 +73,6 @@
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     if (error) {
         NSLog(@"Unexpected login error: %@", error);
-        NSString *alertMessage = error.userInfo[FBSDKErrorLocalizedDescriptionKey] ?: @"There was a problem logging in. Please try again later.";
-        NSString *alertTitle = error.userInfo[FBSDKErrorLocalizedTitleKey] ?: @"Oops";
-        [[[UIAlertView alloc] initWithTitle:alertTitle
-                                    message:alertMessage
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
     } else {
         NSLog(@"Logged in");
     }
@@ -119,7 +114,7 @@
 {
     if (![FBSDKAccessToken currentAccessToken])
     {
-        [self.loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends", @"email"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+        [self.loginManager logInWithReadPermissions:@[@"public_profile", @"user_friends", @"email"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
         
         }];
     }
@@ -134,7 +129,7 @@
     NSLog(@"getPublishAction");
     if ([FBSDKAccessToken currentAccessToken])
     {
-        [self.loginManager logInWithPublishPermissions:@[@"publish_actions"] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+        [self.loginManager logInWithPublishPermissions:@[@"publish_actions"] fromViewController:self handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
             
         }];
     }
@@ -148,6 +143,7 @@
     NSLog(@"gameRequest");
     FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc]init];
     content.message = @"Great FB";
+    content.filters = FBSDKGameRequestFilterAppNonUsers;
     content.title = @"Invite Friends";
     
     /*
@@ -184,7 +180,7 @@
     FBSDKAppInviteContent *inviteContent = [[FBSDKAppInviteContent alloc] init];
     inviteContent.appInvitePreviewImageURL = [NSURL URLWithString:@"https://platformtest.herokuapp.com/1200630.jpg"];
     inviteContent.appLinkURL = url;
-    [FBSDKAppInviteDialog showWithContent:inviteContent delegate:self.appInviteDialogDelegate];
+    [FBSDKAppInviteDialog showFromViewController:self withContent:inviteContent delegate:self.appInviteDialogDelegate];
 }
 
 -(IBAction)shareStoryAPI:(id)sender
@@ -271,20 +267,6 @@
     }
 }
 
-- (IBAction)sharePhoto:(id)sender
-{
-    ImagePicker *imagePicker = [[ImagePicker alloc] init];
-    self.imagePicker = imagePicker;
-    //imagePicker.delegate = self;
-    if ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) && [sender isKindOfClass:[UIView class]]) {
-        UIView *senderView = (UIView *)sender;
-        UIView *view = self.view;
-        [imagePicker presentFromRect:[view convertRect:senderView.bounds fromView:senderView] inView:self.view];
-    } else {
-        [imagePicker presentWithViewController:self];
-    }
-}
-
 - (IBAction)showMain:(UIStoryboardSegue *)segue sender:(id) sender
 {
     NSString *identifier = segue.identifier;
@@ -295,6 +277,12 @@
         return;
     }
     
+    NSLog(@"showMain ==%@",identifier);
+    
+    if ([identifier isEqualToString:@"sharePhoto"]) {
+        return;
+    }
+       
     TableViewPickerController *vc = segue.sourceViewController;
     _selectedFriends = [vc.selection valueForKeyPath:@"id"];
     if (_selectedFriends.count == 0) {
@@ -320,6 +308,8 @@
         
         [FBSDKGameRequestDialog showWithContent:content delegate:self.gameRequestDelegate];
     }
+    
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -342,30 +332,8 @@
                                                                      }];
         vc.allowsMultipleSelection = YES;
     }
-}
-
-#pragma mark - SCImagePickerDelegate
-
-- (void)imagePicker:(ImagePicker *)imagePicker didSelectImage:(UIImage *)image
-{
-    self.selectedPhoto = image;
-    self.imagePicker = nil;
     
-    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
-    photo.image = image;
-    photo.userGenerated = YES;
-    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
-    content.photos = @[photo];
-    content.contentURL = [NSURL URLWithString: @"https://platformtest.herokuapp.com/1200630.html"];
-    content.ref = @"sharePhoto";
-    
-    [FBSDKShareDialog showFromViewController:self withContent:content delegate:_sharingDelegate];
+    NSLog(@"your seque identifier is ==%@",_lastSegueIdentifier);
 }
-
-- (void)imagePickerDidCancel:(ImagePicker *)imagePicker
-{
-    self.imagePicker = nil;
-}
-
 
 @end

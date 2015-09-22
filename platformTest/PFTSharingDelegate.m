@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "SharingDelegate.h"
+#import "PFTSharingDelegate.h"
 
-@implementation SharingDelegate
+@implementation PFTSharingDelegate
 
 -(void) sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
 {

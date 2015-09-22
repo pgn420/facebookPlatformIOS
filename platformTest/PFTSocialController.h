@@ -14,9 +14,8 @@
 #import "SharingDelegate.h"
 #import "AppInviteDialogDelegate.h"
 #import "UiSwipeViewController.h"
-#import "ImagePicker.h"
 
-@interface SocialController : UiSwipeViewController <FBSDKLoginButtonDelegate, UIImagePickerControllerDelegate>
+@interface PFTSocialController : UiSwipeViewController <FBSDKLoginButtonDelegate>
 @property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
 @property (nonatomic, strong) IBOutlet UIButton *customLoginButton;
 @property (nonatomic, strong) IBOutlet UIButton *getPublishActionsButton;

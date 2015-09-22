@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "AppEventsController.h"
-#import "PickerViewController.h"
+#import "PFTAppEventsController.h"
+#import "PFTPickerViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface AppEventsController ()
+@interface PFTAppEventsController ()
 @property (nonatomic, strong) IBOutlet UILabel *tutorialLabel;
 @property (nonatomic, strong) IBOutlet UILabel *levelLabel;
 @property (nonatomic, strong) IBOutlet UITextField *eventParamNameTextField;
@@ -69,7 +69,7 @@
 {
     NSString *identifier = segue.identifier;
     
-    PickerViewController *vc = segue.sourceViewController;
+    PFTPickerViewController *vc = segue.sourceViewController;
     NSDictionary *selectedContent = [vc getSelectedContent];
     NSMutableDictionary *properties = [selectedContent mutableCopy];
     [properties removeObjectForKey:@"Text"];
@@ -114,7 +114,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    PickerViewController *vc = segue.destinationViewController;
+    PFTPickerViewController *vc = segue.destinationViewController;
     _lastSegueIdentifier = segue.identifier;
     if ([_lastSegueIdentifier isEqualToString:@"showRegistration"]) {
         vc.content = @[@{FBSDKAppEventParameterNameRegistrationMethod: @"Facebook",

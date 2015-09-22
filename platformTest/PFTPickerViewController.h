@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PickerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface PFTPickerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (nonatomic, strong) IBOutlet UIPickerView *pickerView;
 @property (nonatomic, strong) NSArray *content;
 -(void) setContent:(NSArray *)content;

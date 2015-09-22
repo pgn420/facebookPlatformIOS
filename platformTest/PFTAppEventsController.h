@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SecondViewController.h
 //  platformTest
 //
 //  Created by Pu Guannan on 4/7/15.
@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+#import "PFTUiSwipeViewController.h"
 
-@property (strong, nonatomic) UIWindow *window;
-
-
+@interface PFTAppEventsController : PFTUiSwipeViewController
 @end
 

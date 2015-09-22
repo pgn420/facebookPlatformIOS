@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "PickerViewController.h"
+#import "PFTPickerViewController.h"
 
 @implementation PickerViewController
 

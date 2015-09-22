@@ -6,17 +6,17 @@
 //  Copyright (c) 2015 Pu Guannan. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "PFTAppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import <Parse/Parse.h>
 
-@interface AppDelegate ()
+@interface PFTAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation PFTAppDelegate
 
 + (void)initialize
 {
