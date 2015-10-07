@@ -212,7 +212,7 @@
 
     if ([self.capturedImages count] > 0)
     {
-        self.image = [self.capturedImages objectAtIndex:0];
+        self.images = self.capturedImages;
         if ([self.capturedImages count] == 1)
         {
             // Camera took a single picture.
@@ -228,12 +228,12 @@
         }
         
         // To be ready to start again, clear the captured images array.
-        [self.capturedImages removeAllObjects];
+        self.capturedImages = nil;
     }
 
     self.imagePickerController = nil;
     
-    [self.shareButton setEnabled:(self.image != nil)];
+    [self.shareButton setEnabled:([self.images count] != 0)];
 }
 
 

@@ -281,15 +281,20 @@
     
     if ([identifier isEqualToString:@"sharePhoto"]) {
         PFTImageViewController *vc = segue.sourceViewController;
-        UIImage *image = vc.image;
-        if (image == nil) {
+        NSArray *images = vc.images;
+        if ([images count] == 0) {
             return;
         }
-        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
-        photo.image = image;
-        photo.userGenerated = YES;
+        NSMutableArray* photos = [[NSMutableArray alloc]init];
+        for (UIImage *object in images) {
+            FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+            photo.image = object;
+            photo.userGenerated = YES;
+            [photos addObject:photo];
+        }
+
         FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
-        content.photos = @[photo];
+        content.photos = photos;
         [FBSDKShareDialog showFromViewController:self.view.window.rootViewController withContent:content delegate:_sharingDelegate];
         return;
     }

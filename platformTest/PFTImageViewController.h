@@ -48,5 +48,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PFTImageViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property (nonatomic) UIImage *image;
+@property (nonatomic) NSArray *images;
 @end
