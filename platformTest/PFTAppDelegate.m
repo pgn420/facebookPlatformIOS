@@ -38,6 +38,10 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    if (application.applicationState != UIApplicationStateBackground) {
+        //[FBSDKAppEvents logPushNotificationOpen:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
+    }
+    
     [FBSDKSettings enableLoggingBehavior:FBSDKLoggingBehaviorGraphAPIDebugInfo];
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
@@ -59,18 +63,24 @@
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     currentInstallation.channels = @[ @"singapore", @"global"];
-    [currentInstallation addUniqueObject:@"realMadrid" forKey:@"favoriteTeam"];
+    //[currentInstallation addUniqueObject:@"realMadrid" forKey:@"favoriteTeam"];
     [currentInstallation saveInBackground];
     
-    /* local push from parse
+    NSLog(@"Device token :%@", deviceToken.debugDescription);
+    
+    [FBSDKAppEvents setPushNotificationsDeviceToken:deviceToken];
+    
+     //local push from parse
     // Create our Installation query
     PFQuery *pushQuery = [PFInstallation query];
     [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
     
     // Send push notification to query
-    [PFPush sendPushMessageToQueryInBackground:pushQuery
+    /*
+     [PFPush sendPushMessageToQueryInBackground:pushQuery
                                    withMessage:@"Hello World!"];
      */
+    
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {

@@ -15,6 +15,7 @@
     FBSDKShareLinkContent *content = [sharer shareContent];
     NSLog(@"share complete %@", content.contentURL);
     NSLog(@"share ref %@", content.ref);
+    NSLog(@"res %zd", results.count);
 }
 
 -(void) sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error

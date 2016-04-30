@@ -12,8 +12,9 @@
 #import <FBSDKShareKit/FBSDKGameRequestContent.h>
 #include "PFTTableViewPickerController.h"
 #include "PFTImageViewController.h"
+#import <AccountKit/AccountKit.h>
 
-@interface PFTSocialController ()
+@interface PFTSocialController () <AKFViewControllerDelegate, AKFAccountPreferencesDelegate>
 @property (nonatomic) bool playerLoggedIn;
 @property (nonatomic, strong) UIImage *selectedPhoto;
 @end
@@ -22,6 +23,15 @@
 {
     NSString *_lastSegueIdentifier;
     NSArray *_selectedFriends;
+    
+    //account kit
+    AKFAccountKit *_accountKit;
+    UIViewController<AKFViewController> *_pendingLoginViewController;
+    NSString *_authorizationCode;
+    
+    //account kit preference
+    AKFAccountPreferences *_accountKitPrefs;
+    NSMutableDictionary<NSString *, NSString *> *_preferences;
 }
 
 - (void)viewDidLoad {
@@ -30,6 +40,7 @@
     NSLog(@"FirstViewController viewDidLoad");
     
     [self createLikeButton];
+    [self createShareButton];
     
     _loginManager = [[FBSDKLoginManager alloc] init];
     _gameRequestDelegate = [[PFTGameRequestDelegate alloc] init];
@@ -48,6 +59,29 @@
     }
     
     _profilePictureView.profileID = @"me";
+    
+    // initialize Account Kit
+    if (_accountKit == nil) {
+        // may also specify AKFResponseTypeAccessToken
+        _accountKit = [[AKFAccountKit alloc] initWithResponseType:AKFResponseTypeAccessToken];
+    }
+    
+    // view controller for resuming login
+    _pendingLoginViewController = [_accountKit viewControllerForLoginResume];
+    
+    //_accountKitPrefs = [_accountKit accountPreferences];
+    //_accountKitPrefs.delegate = self;
+    
+    if ([_accountKit currentAccessToken]) {
+        NSLog(@"Found existing account kit token %@", [_accountKit currentAccessToken].tokenString);
+        NSLog(@"account kit USER ID %@", [_accountKit currentAccessToken].accountID);
+        [self.smsLoginButton setTitle:@"SMS Logout" forState:UIControlStateNormal];
+        
+        _accountKitPrefs = [_accountKit accountPreferences];
+        _accountKitPrefs.delegate = self;
+        [_accountKitPrefs loadPreferences];
+        //NSString *value = [_accountKitPrefs loadPreferenceForKey:@"pgn"];
+    }
 }
 
 - (void)dealloc {
@@ -63,10 +97,23 @@
 {
     CGRect rect = self.view.bounds;
     FBSDKLikeControl *button = [[FBSDKLikeControl alloc] init];
-    button.objectID = @"https://www.facebook.com/DotArenaFunplus";
+    button.objectID = @"https://www.facebook.com/duapps";
     button.likeControlAuxiliaryPosition = FBSDKLikeControlAuxiliaryPositionBottom;
     button.likeControlStyle = FBSDKLikeControlStyleBoxCount;
     button.center = CGPointMake(rect.size.width / 2.0, rect.size.height - 100);
+    [self.view addSubview:button];
+}
+
+- (void)createShareButton
+{
+    CGRect rect = self.view.bounds;
+    FBSDKShareButton *button = [[FBSDKShareButton alloc] init];
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentTitle = @"Fbrell";
+    content.contentURL = [NSURL URLWithString:@"https://www.fbrell.com"];
+    button.shareContent = content;
+    button.center = CGPointMake(rect.size.width / 2.0, rect.size.height - 150);
+    
     [self.view addSubview:button];
 }
 
@@ -81,6 +128,65 @@
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
 
 }
+
+#pragma mark - AKFAccountPreferencesDelegate
+
+- (void)accountPreferences:(AKFAccountPreferences *)accountPreferences
+        didLoadPreferences:(nullable NSDictionary<NSString *, NSString *> *)preferences
+                     error:(nullable NSError *)error
+{
+    if (error) {
+        // ... respond to the error appropriately ...
+        return;
+    }
+    
+    NSLog(@"AK Prefs Load ALL success!");
+    _preferences = [preferences mutableCopy];
+    for (NSString *key in _preferences) {
+        NSString *value = _preferences[key];
+        NSLog(@"%@ : %@", key, value);
+    }
+}
+
+- (void)accountPreferences:(AKFAccountPreferences *)accountPreferences
+   didLoadPreferenceForKey:(NSString *)key
+                     value:(nullable NSString *)value
+                     error:(nullable NSError *)error
+{
+    if (error) {
+        // ... respond to the error appropriately ...
+        return;
+    }
+    NSLog(@"AK Prefs Load success! %@ : %@", key, value);
+    _preferences[key] = value;
+}
+
+- (void)accountPreferences:(AKFAccountPreferences *)accountPreferences
+    didSetPreferenceForKey:(NSString *)key
+                     value:(NSString *)value
+                     error:(nullable NSError *)error
+{
+    if (error) {
+        // ... respond to the error appropriately ...
+        return;
+    }
+    NSLog(@"AK Prefs Set success! %@ : %@", key, value);
+    _preferences[key] = value;
+}
+
+- (void)accountPreferences:(AKFAccountPreferences *)accountPreferences
+ didDeletePreferenceForKey:(NSString *)key
+                     error:(nullable NSError *)error
+
+{
+    if (error) {
+        // ... respond to the error appropriately ...
+        return;
+    }
+    NSLog(@"AK Prefs Delete success! %@ ", key);
+    [_preferences removeObjectForKey:key];
+}
+
 
 #pragma mark - Observations
 
@@ -108,6 +214,58 @@
     else {
         _profileName.text = @"";
     }
+}
+
+- (IBAction)smsLogin:(id)sender
+{
+    if (![_accountKit currentAccessToken])
+    {
+        //NSString *preFillPhoneNumber = @"!";
+        NSString *inputState = [[NSUUID UUID] UUIDString];
+        UIViewController<AKFViewController> *viewController = [_accountKit viewControllerForPhoneLoginWithPhoneNumber:nil state:inputState];
+        viewController.enableSendToFacebook = YES; // defaults to NO
+        [self _prepareLoginViewController:viewController]; // see below
+        [self presentViewController:viewController animated:YES completion:NULL];
+    }
+    else
+    {
+        [_accountKit logOut];
+        [self.smsLoginButton setTitle:@"SMS Login" forState:UIControlStateNormal];
+    }
+}
+
+- (void)_prepareLoginViewController:(UIViewController<AKFViewController> *)loginViewController
+{
+    loginViewController.delegate = self;
+    // Optionally, you may use the Advanced UI Manager or set a theme to customize the UI.
+    //loginViewController.advancedUIManager = _advancedUIManager;
+    //loginViewController.theme = [Themes bicycleTheme];
+}
+
+- (void) viewController:(UIViewController<AKFViewController> *)viewController
+didCompleteLoginWithAccessToken:(id<AKFAccessToken>)accessToken
+                  state:(NSString *)state
+{
+    NSLog(@"AK token: %@", [accessToken tokenString]);
+    NSLog(@"AK UserID: %@", [accessToken accountID]);
+    
+    [self.smsLoginButton setTitle:@"SMS Logout" forState:UIControlStateNormal];
+    
+    _accountKitPrefs = [_accountKit accountPreferences];
+    _accountKitPrefs.delegate = self;
+    
+    [_accountKitPrefs setPreferenceForKey:@"pgn" value:@"LOL"];
+}
+
+- (void)viewController:(UIViewController<AKFViewController> *)viewController didFailWithError:(NSError *)error
+{
+    // ... implement appropriate error handling ...
+    NSLog(@"%@ did fail with error: %@", viewController, error);
+}
+
+- (void)viewControllerDidCancel:(UIViewController<AKFViewController> *)viewController
+{
+    // ... handle user cancellation of the login process ...
 }
 
 - (IBAction)customLogin:(id)sender
@@ -141,10 +299,7 @@
 - (IBAction)gameRequest:(id)sender
 {
     NSLog(@"gameRequest");
-    FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc]init];
-    content.message = @"Great FB";
-    content.filters = FBSDKGameRequestFilterAppNonUsers;
-    content.title = @"Invite Friends";
+
     
     /*
     FBSDKGameRequestDialog *gameDialog = [[FBSDKGameRequestDialog alloc]init];
@@ -157,6 +312,11 @@
     }
      */
     
+    FBSDKGameRequestContent *content = [[FBSDKGameRequestContent alloc]init];
+    content.message = @"Great FB";
+    content.filters = FBSDKGameRequestFilterAppNonUsers;
+    content.title = @"Invite Friends";
+    
     [FBSDKGameRequestDialog showWithContent:content delegate:self.gameRequestDelegate];
 }
 
@@ -164,14 +324,25 @@
 -(IBAction)shareStory:(id)sender
 {
     FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-    content.imageURL = [NSURL URLWithString:@"https://platformtest.herokuapp.com/1200630.jpg"];
-    content.contentTitle = @"Test";
-    content.contentURL =[NSURL URLWithString: @"https://platformtest.herokuapp.com/1200630.html"];
-    //content.contentURL = [NSURL URLWithString:@"https://youtu.be/C8zEMHmYLyU"];
-    
+    content.contentTitle = @"Fbrell";
+    content.contentURL = [NSURL URLWithString:@"https://www.fbrell.com"];
     content.ref = @"Sharelink";
     
-    [FBSDKShareDialog showFromViewController:self withContent:content delegate:self.sharingDelegate];
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+    dialog.mode = FBSDKShareDialogModeAutomatic;
+    dialog.shareContent = content;
+    dialog.fromViewController = self;
+    [dialog show];
+    //[FBSDKShareDialog showFromViewController:self  withContent:content delegate:self.sharingDelegate];
+    
+    /*
+    NSString *textToShare = @"your text";
+    UIImage *imageToShare = [UIImage imageNamed:@"yourImage.png"];
+    NSArray *itemsToShare = @[textToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll]; //or whichever you don't need
+    [self presentViewController:activityVC animated:YES completion:nil];
+     */
 }
 
 -(IBAction)appInvite:(id)sender

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB4A79111CBB747900AB36BB /* AccountKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4A79101CBB747900AB36BB /* AccountKit.framework */; };
 		FB5EBC401AD3A9FA002E529B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC3F1AD3A9FA002E529B /* main.m */; };
 		FB5EBC431AD3A9FA002E529B /* PFTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC421AD3A9FA002E529B /* PFTAppDelegate.m */; };
 		FB5EBC461AD3A9FA002E529B /* PFTSocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5EBC451AD3A9FA002E529B /* PFTSocialController.m */; };
@@ -17,13 +18,13 @@
 		FB5F5E741ADD6E3400E7A019 /* PFTSharingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F5E731ADD6E3400E7A019 /* PFTSharingDelegate.m */; };
 		FB5F5E7A1ADD71CD00E7A019 /* PFTAppInviteDialogDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F5E791ADD71CD00E7A019 /* PFTAppInviteDialogDelegate.m */; };
 		FB5F5E7D1ADD875C00E7A019 /* PFTTableViewPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB5F5E7C1ADD875C00E7A019 /* PFTTableViewPickerController.m */; };
-		FB6A99861BAB36A800D54EEF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6A99851BAB36A800D54EEF /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
-		FB6D87211BAFD5D900B8EAE8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D871D1BAFD5D900B8EAE8 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		FB6D87221BAFD5D900B8EAE8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D871E1BAFD5D900B8EAE8 /* FBSDKCoreKit.framework */; settings = {ASSET_TAGS = (); }; };
-		FB6D87231BAFD5D900B8EAE8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D871F1BAFD5D900B8EAE8 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
-		FB6D87241BAFD5D900B8EAE8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D87201BAFD5D900B8EAE8 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
-		FB6D87271BAFE03600B8EAE8 /* PFTImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D87261BAFE03600B8EAE8 /* PFTImageViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FB7C07461BB010B300EFE8D8 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7C07451BB010B300EFE8D8 /* OverlayView.xib */; settings = {ASSET_TAGS = (); }; };
+		FB6A99861BAB36A800D54EEF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6A99851BAB36A800D54EEF /* Parse.framework */; };
+		FB6D87211BAFD5D900B8EAE8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D871D1BAFD5D900B8EAE8 /* Bolts.framework */; };
+		FB6D87221BAFD5D900B8EAE8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D871E1BAFD5D900B8EAE8 /* FBSDKCoreKit.framework */; };
+		FB6D87231BAFD5D900B8EAE8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D871F1BAFD5D900B8EAE8 /* FBSDKLoginKit.framework */; };
+		FB6D87241BAFD5D900B8EAE8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6D87201BAFD5D900B8EAE8 /* FBSDKShareKit.framework */; };
+		FB6D87271BAFE03600B8EAE8 /* PFTImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6D87261BAFE03600B8EAE8 /* PFTImageViewController.m */; };
+		FB7C07461BB010B300EFE8D8 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7C07451BB010B300EFE8D8 /* OverlayView.xib */; };
 		FBA5CDC01ADE68340099E5A4 /* PFTPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA5CDBF1ADE68340099E5A4 /* PFTPickerViewController.m */; };
 		FBBDE3EB1AD5B71B000EB014 /* PFTGameRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBDE3EA1AD5B71B000EB014 /* PFTGameRequestDelegate.m */; };
 		FBC06F1C1ADED33F002CC1F5 /* PFTUiSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC06F1B1ADED33F002CC1F5 /* PFTUiSwipeViewController.m */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB4A79101CBB747900AB36BB /* AccountKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AccountKit.framework; path = ../../Documents/FacebookSDK/AccountKit.framework; sourceTree = "<group>"; };
 		FB5EBC3A1AD3A9FA002E529B /* platformTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = platformTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB5EBC3E1AD3A9FA002E529B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5EBC3F1AD3A9FA002E529B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				FBFC3FD71AFB5D510066A31F /* libsqlite3.dylib in Frameworks */,
 				FBFC3FD11AFB5D510066A31F /* Accounts.framework in Frameworks */,
 				FBFC3FDE1AFB5D510066A31F /* SystemConfiguration.framework in Frameworks */,
+				FB4A79111CBB747900AB36BB /* AccountKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +220,7 @@
 				FB6D871E1BAFD5D900B8EAE8 /* FBSDKCoreKit.framework */,
 				FB6D871F1BAFD5D900B8EAE8 /* FBSDKLoginKit.framework */,
 				FB6D87201BAFD5D900B8EAE8 /* FBSDKShareKit.framework */,
+				FB4A79101CBB747900AB36BB /* AccountKit.framework */,
 				FB6A99851BAB36A800D54EEF /* Parse.framework */,
 			);
 			name = Frameworks;
@@ -372,8 +376,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iOS Development: Guannan Pu (J7P7J2VA77)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Development: Guannan Pu (J7P7J2VA77)";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.pgn.platformTest";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.pgn.platformTest";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -394,7 +398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "149108f2-477e-468e-b33d-43ef2c1ff8b2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -417,8 +421,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iOS Development: Guannan Pu (J7P7J2VA77)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guannan Pu (N6E5H3Y23W)";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.pgn.platformTest";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: com.pgn.platformTest";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -431,7 +435,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "149108f2-477e-468e-b33d-43ef2c1ff8b2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

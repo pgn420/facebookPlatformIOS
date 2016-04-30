@@ -18,6 +18,7 @@
 @interface PFTSocialController : PFTUiSwipeViewController <FBSDKLoginButtonDelegate>
 @property (nonatomic, strong) IBOutlet FBSDKLoginButton *loginButton;
 @property (nonatomic, strong) IBOutlet UIButton *customLoginButton;
+@property (nonatomic, strong) IBOutlet UIButton *smsLoginButton;
 @property (nonatomic, strong) IBOutlet UIButton *getPublishActionsButton;
 @property (nonatomic, strong) IBOutlet FBSDKProfilePictureView *profilePictureView;
 @property (nonatomic, strong) IBOutlet UILabel *profileName;
